@@ -1,0 +1,56 @@
+.card-container-user {
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 200px;
+    background-color: #ffffff;
+}
+
+.card-container:hover {
+    box-shadow: 0 0 30px rgba(172, 180, 180, 0.3);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    padding: 40px;
+}
+
+.submit-button {
+    margin-top: 20px;
+
+}
+
+.submit-button .username-button {
+    padding: 10px 30px;
+    font-size: 15px;
+}
+
+.start-game-button{
+    text-align: center;
+    margin-top: 50px;
+}
+.start-game-button .start-button{
+    padding: 10px 50px;
+    font-size: larger;
+}
+.login-page-link {
+    text-align: center;
+    margin-top: 40px; 
+    font-size: 20px;
+  }
+  
