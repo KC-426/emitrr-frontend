@@ -15,7 +15,7 @@ function DeckOfCards() {
 
   const startGame = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/start_game');
+      const response = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/start_game`);
       const { deck } = response.data;
       setDeck(deck);
       setGameStarted(true);
@@ -30,7 +30,7 @@ function DeckOfCards() {
         setNoCardsLeft(true);
         return;
       }
-      const response = await axios.post('http://localhost:3000/draw_card_to_win');
+      const response = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/draw_card_to_win`);
       const { message, card } = response.data;
       alert(message); 
       setDeck(deck.filter((c) => c !== card));
@@ -41,7 +41,7 @@ function DeckOfCards() {
 
   const fetchLeaderboard = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/leaderboard');
+      const response = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/leaderboard`);
       setLeaderboard(response.data);
     } catch (error) {
       console.error('Error fetching leaderboard:', error);

@@ -13,11 +13,8 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        { username },
-        { withCredentials: true }
-      );
+     const url =  `${import.meta.env.VITE_APP_BASE_URL}/login`
+      const response = await axios.post(url, { username }, { withCredentials: true });
       console.log("data", response);
       if (response.data.success) {
         setSnackbarMessage("Logged in successfully");

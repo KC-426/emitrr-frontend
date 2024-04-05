@@ -13,11 +13,8 @@ export default function AddUsername() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/create_user",
-        { username },
-        { withCredentials: true }
-      );
+      const url = `${import.meta.env.VITE_APP_BASE_URL}/create_user`
+      const response = await axios.post(url, { username }, { withCredentials: true });
       console.log("data", response);
       if (response.data.success) {
         setSnackbarMessage("Username added successfully");
