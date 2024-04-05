@@ -14,7 +14,7 @@ export default function Login() {
 
     try {
      const url =  `${import.meta.env.VITE_APP_BASE_URL}/login`
-      const response = await axios.get(url, { username }, { withCredentials: true });
+      const response = await axios.post(url, { username }, { withCredentials: true });
       console.log("data", response);
       if (response.data.success) {
         setSnackbarMessage("Logged in successfully");
