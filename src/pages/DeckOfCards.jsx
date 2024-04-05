@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from "@mui/material";
 import '../DeckOfCards.css';
@@ -6,12 +6,6 @@ import '../DeckOfCards.css';
 function DeckOfCards() {
   const [deck, setDeck] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
-  const [leaderboard, setLeaderboard] = useState([]);
-  const [noCardsLeft, setNoCardsLeft] = useState(false);
-
-  useEffect(() => {
-    fetchLeaderboard();
-  }, []);
 
   const startGame = async () => {
     try {
@@ -39,14 +33,6 @@ function DeckOfCards() {
     }
   };
 
-  const fetchLeaderboard = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/leaderboard`);
-      setLeaderboard(response.data);
-    } catch (error) {
-      console.error('Error fetching leaderboard:', error);
-    }
-  };
 
   return (
     <div className='main_container'>
@@ -72,17 +58,6 @@ function DeckOfCards() {
           </>
         )}
       </div>
-      <div className="leaderboard" style={{margin: "40px"}}>
-        <h2>Leaderboard</h2>
-        <ul>
-          {leaderboard.map(([username, stats], index) => (
-            <li key={index}>
-              {username}: Wins - {stats.wins}, Losses - {stats.losses}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {noCardsLeft && <p>No cards left in the deck.</p>}
     </div>
   );
 }
